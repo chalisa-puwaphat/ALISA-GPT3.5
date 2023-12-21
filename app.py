@@ -14,12 +14,13 @@ def index():
 # Define the /api route to handle POST requests
 @app.route("/api", methods=["POST"])
 def api():
-    # Get the message and device type from the POST request
+    # Get the message, device type, and style from the POST request
     user_message = request.json.get("message")
     device_type = request.json.get("device_type")
+    selected_style = request.json.get("style")
 
-    # Generate a prompt based on the user's input and selected device type
-    prompt = f"Create a user interface suitable for the elderly for a {user_message} app on {device_type}."
+    # Generate a prompt based on the user's input, selected device type, and style
+    prompt = f"Create a {selected_style} user interface suitable for the elderly for a {user_message} app on {device_type}."
 
     # Send the modified message to OpenAI's API and receive the response
     completion = openai.ChatCompletion.create(
