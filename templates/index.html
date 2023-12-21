@@ -37,6 +37,13 @@
     <!-- Tab content -->
     <div class="tab-content mt-3">
       <div class="tab-pane fade show active" id="web">
+        <!-- Add style choices using button chips -->
+        <div class="mt-3">
+          <button type="button" class="btn btn-outline-primary style-btn" data-style="modern">Modern</button>
+          <button type="button" class="btn btn-outline-primary style-btn" data-style="classic">Classic</button>
+          <button type="button" class="btn btn-outline-primary style-btn" data-style="minimalistic">Minimalistic</button>
+        </div>
+
         <div class="chat-box mt-3">
           <!-- Chat messages will be added here dynamically -->
         </div>
@@ -67,6 +74,18 @@
       console.log('Selected device type:', deviceType);
     });
 
+    // Add an event listener for style buttons
+    document.querySelectorAll('.style-btn').forEach(function (styleBtn) {
+      styleBtn.addEventListener('click', function (event) {
+        // Toggle the 'active' class for style buttons
+        document.querySelectorAll('.style-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        const selectedStyle = event.target.getAttribute('data-style');
+        console.log('Selected style:', selectedStyle);
+        sendMessage(selectedStyle); // Pass the selected style to sendMessage
+      });
+    });
+
     function addMessage(message, isUserMessage) {
       const messageDiv = document.createElement("div");
       messageDiv.classList.add("mt-3", "p-3", "rounded");
@@ -85,18 +104,21 @@
       chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    function sendMessage() {
+    function sendMessage(selectedStyle) {
       const message = messageInput.value.trim();
 
       if (message !== "") {
         addMessage(message, true);
+
+        // Add the selected device type and style to the request
+        const deviceType = document.querySelector('.nav-tabs .active').textContent.toLowerCase();
 
         fetch("/api", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({ message, device_type: 'web' })  // Pass the selected device type
+          body: JSON.stringify({ message, device_type: deviceType, style: selectedStyle })
         })
           .then(response => response.json())
           .then(data => {
@@ -122,16 +144,19 @@
       }
     }
 
-    sendBtn.addEventListener("click", sendMessage);
+    sendBtn.addEventListener("click", function () {
+      sendMessage(); // Call sendMessage without passing the style (default behavior)
+    });
+
     messageInput.addEventListener("keydown", event => {
       if (event.keyCode === 13 && !event.shiftKey) {
         event.preventDefault();
-        sendMessage();
+        sendMessage(); // Call sendMessage without passing the style (default behavior)
       }
     });
 
     setInterval(highlightAll, 1000);
   </script>
 </body>
-
 </html>
+
