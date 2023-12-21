@@ -14,32 +14,58 @@
   <script src="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/lib/languages/python.min.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/a11y-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
 </head>
 
 <body>
   <div class="container mt-5">
-    <h1 style="color:white">Simplfy Prompts</h1>
-    <div class="chat-box mt-3">
-      <!-- Chat messages will be added here dynamically -->
+    <h1 style="color:white">Simplify Prompts</h1>
+
+    <!-- Add a tab switch for device type -->
+    <ul class="nav nav-tabs" id="deviceTabs">
+      <li class="nav-item">
+        <a class="nav-link active" id="web-tab" data-toggle="tab" href="#web">Web</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="tablet-tab" data-toggle="tab" href="#tablet">Tablet</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="mobile-tab" data-toggle="tab" href="#mobile">Mobile</a>
+      </li>
+    </ul>
+
+    <!-- Tab content -->
+    <div class="tab-content mt-3">
+      <div class="tab-pane fade show active" id="web">
+        <div class="chat-box mt-3">
+          <!-- Chat messages will be added here dynamically -->
+        </div>
+        <div class="form-group mt-3">
+          <textarea class="form-control" rows="3" placeholder="Type your message here" id="message-input"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" id="send-btn">Send</button>
+      </div>
+      <!-- Add similar content for tablet and mobile tabs if needed -->
     </div>
-    <div class="form-group mt-3">
-      <textarea class="form-control" rows="3" placeholder="Type your message here" id="message-input"></textarea>
-    </div>
-    <button type="button" class="btn btn-primary" id="send-btn">Send</button>
   </div>
+
   <script>
-setInterval(highlightAll,1000);
-// Function to highlight code using highlight.js library
-function highlightAll() {
-  document.querySelectorAll("pre code").forEach(block => {
-    hljs.highlightBlock(block);
-  });
-}
+    // Function to highlight code using highlight.js library
+    function highlightAll() {
+      document.querySelectorAll("pre code").forEach(block => {
+        hljs.highlightBlock(block);
+      });
+    }
 
     const chatBox = document.querySelector(".chat-box");
     const messageInput = document.querySelector("#message-input");
     const sendBtn = document.querySelector("#send-btn");
+
+    // Add an event listener for tab switches
+    document.getElementById('deviceTabs').addEventListener('click', function (event) {
+      const deviceType = event.target.id.replace('-tab', ''); // Get the selected device type
+      console.log('Selected device type:', deviceType);
+    });
 
     function addMessage(message, isUserMessage) {
       const messageDiv = document.createElement("div");
@@ -47,21 +73,17 @@ function highlightAll() {
 
       if (isUserMessage) {
         messageDiv.classList.add("user-message");
-
       } else {
         messageDiv.classList.add("bot-message");
       }
 
       messageDiv.innerHTML = `
         <img src="{{ url_for('static', filename='images/user.png') }}" class="user-icon"><p>${message}</p>
-        `;
+      `;
 
       chatBox.appendChild(messageDiv);
       chatBox.scrollTop = chatBox.scrollHeight;
     }
-
-
-
 
     function sendMessage() {
       const message = messageInput.value.trim();
@@ -74,29 +96,23 @@ function highlightAll() {
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({ message })
+          body: JSON.stringify({ message, device_type: 'web' })  // Pass the selected device type
         })
           .then(response => response.json())
           .then(data => {
-                      messageInput.value = "";
+            messageInput.value = "";
             const messageDiv = document.createElement("div");
             messageDiv.classList.add("mt-3", "p-3", "rounded");
             messageDiv.classList.add("bot-message");
-           
+
             const content = data.content;
-            
-            // Check if the content has code block
+
             const hasCodeBlock = content.includes("```");
             if (hasCodeBlock) {
-              // If the content has code block, wrap it in a <pre><code> element
               const codeContent = content.replace(/```([\s\S]+?)```/g, '</p><pre><code>$1</code></pre><p>');
-
-             
-              messageDiv.innerHTML = `<img src="{{ url_for('static', filename='images/gpt.jpg') }}" class="bot-icon"><p>${codeContent}</p>`
-             
-            }
-            else{
-              messageDiv.innerHTML = `<img src="{{ url_for('static', filename='images/gpt.jpg') }}" class="bot-icon"><p>${content}</p>`
+              messageDiv.innerHTML = `<img src="{{ url_for('static', filename='images/gpt.jpg') }}" class="bot-icon"><p>${codeContent}</p>`;
+            } else {
+              messageDiv.innerHTML = `<img src="{{ url_for('static', filename='images/gpt.jpg') }}" class="bot-icon"><p>${content}</p>`;
             }
             chatBox.appendChild(messageDiv);
             chatBox.scrollTop = chatBox.scrollHeight;
@@ -106,7 +122,6 @@ function highlightAll() {
       }
     }
 
-    
     sendBtn.addEventListener("click", sendMessage);
     messageInput.addEventListener("keydown", event => {
       if (event.keyCode === 13 && !event.shiftKey) {
@@ -114,6 +129,8 @@ function highlightAll() {
         sendMessage();
       }
     });
+
+    setInterval(highlightAll, 1000);
   </script>
 </body>
 
