@@ -1,0 +1,27 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Add your head content here -->
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h1 style="color:white">Log In</h1>
+
+    <form method="POST" action="{{ url_for('login') }}">
+      <div class="form-group mt-3">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+      <div class="form-group mt-3">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Log In</button>
+    </form>
+  </div>
+</body>
+
+</html>
