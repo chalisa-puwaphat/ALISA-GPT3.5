@@ -1,10 +1,22 @@
 from flask import Flask, render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
 import openai
 
 app = Flask(__name__)
 
-# Set up OpenAI API credentials
-openai.api_key = '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'
+# Replace 'your_username', 'your_password', and 'your_database_name' with your actual MySQL credentials
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/alisa_users'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Create a SQLAlchemy instance
+db = SQLAlchemy(app)
+
+# Define the User model
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
 
 # Define the default route to return the index.html file
 @app.route("/")
@@ -36,7 +48,6 @@ def api():
         return {'content': 'Failed to generate response!'}
 
 # Define the /signup route to handle GET and POST requests for sign-up
-# Define the /signup route to handle GET and POST requests for sign-up
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
@@ -46,7 +57,10 @@ def signup():
         email = request.form.get("email")
         password = request.form.get("password")
 
-        # Perform validation and database insertion (not implemented in this example)
+        # Create a new user and add it to the database
+        new_user = User(username=username, email=email, password=password)
+        db.session.add(new_user)
+        db.session.commit()
 
         # Redirect to the index page for now
         return redirect(url_for("index"))
@@ -63,13 +77,20 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        # Perform validation and authentication (not implemented in this example)
+        # Perform authentication (check username and password against the database)
+        user = User.query.filter_by(username=username, password=password).first()
 
-        # Redirect to the index page for now
-        return redirect(url_for("index"))
+        if user:
+            # Authentication successful, redirect to the index page
+            return redirect(url_for("index"))
+        else:
+            # Authentication failed, render the login page with an error message
+            return render_template("login.html", error="Invalid username or password")
 
     # If it's a GET request, render the login page
     return render_template("login.html")
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
