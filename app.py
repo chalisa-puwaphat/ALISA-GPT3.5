@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from datetime import datetime
+
 import openai
 
 app = Flask(__name__)
@@ -17,9 +19,12 @@ bcrypt = Bcrypt(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
+    name = db.Column(db.String(80), nullable=False)
+    lastname = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
+    signup_timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    last_login_timestamp = db.Column(db.DateTime)
 
 # Define the default route to return the index.html file
 @app.route("/")
@@ -53,14 +58,15 @@ def api():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
-        username = request.form.get("username")
+        name = request.form.get("name")
+        lastname = request.form.get("lastname")
         email = request.form.get("email")
         password = request.form.get("password")
 
         # Hash the password before storing it in the database
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
-        new_user = User(username=username, email=email, password=hashed_password)
+        new_user = User(name=name, lastname=lastname, email=email, password=hashed_password)
 
         db.session.add(new_user)
         db.session.commit()
@@ -74,20 +80,24 @@ def signup():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        username = request.form.get("username")
+        email = request.form.get("email")
         password = request.form.get("password")
 
-        user = User.query.filter_by(username=username).first()
+        user = User.query.filter_by(email=email).first()
 
         if user and bcrypt.check_password_hash(user.password, password):
             # Log in the user and store user data in the session
             session['user_id'] = user.id
-            session['username'] = user.username
+            session['email'] = user.email
+
+            # Update last login timestamp
+            user.last_login_timestamp = datetime.utcnow()
+            db.session.commit()
 
             flash('Login successful!', 'success')
             return redirect(url_for("index"))
         else:
-            flash('Invalid username or password', 'danger')
+            flash('Invalid email or password', 'danger')
 
     return render_template("login.html")
 
