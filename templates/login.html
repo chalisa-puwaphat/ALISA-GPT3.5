@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALISA I Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALISA I Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -36,8 +39,36 @@
 
   <a href="{{ url_for('login') }}"><img src="google_signin_button.png" alt="Sign Up with Google"></a>
 
+  <!--------------------------------------- Footer --------------------------------------->
   <footer class="footer mt-5">
-    <p>&copy; Prince of Songkla University International College, Hatyai Campus</p>
-  </footer>
+
+    <div class="footer-left">
+      <img src="static/images/Alisa-White-Logo.png" alt="Your Logo" class="logo">
+      <p>Join our Community</p>
+
+      <div class="social-media">
+        <img src="static/images/facebook-icon.png" alt="social-icon" class="social-icon">
+        <img src="static/images/youtube-icon.png" alt="social-icon" class="social-icon">
+        <img src="static/images/linkedin-icon.png" alt="social-icon" class="social-icon">
+      </div>
+    </div>
+
+    <div class="footer-right">
+
+      <h3>Contact Us</h3>
+      <p>Prince of Songkla University International College, Hatyai Campus<br>12th Floor, Learning Resource Center 2
+        (LRC 2)<br>15 Kanjanavanich Road, Hat Yai, Songkhla, TH 90110</p>
+
+      <div class="contact-info">
+        <img src="static/images/call-icon.png" alt="call-icon" class="call-icon">
+        <h4 class="phone-number">+66 (0) 74282831</h4>
+        <img src="static/images/email-icon.png" alt="email-icon" class="email-icon">
+        <h4 class="email">alisa@gmail.com</h4>
+      </div>
+
+    </div>
+    </div>
+</footer>
 </body>
+
 </html>
