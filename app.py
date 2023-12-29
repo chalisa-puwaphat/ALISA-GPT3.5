@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from flask_dance.contrib.google import make_google_blueprint, google
 from datetime import datetime
+from flask import redirect
 
 import openai
 
@@ -11,11 +13,18 @@ app.secret_key = 'alisa'  # Change this to a secret key for session management
 # Set up OpenAI API credentials
 openai.api_key = '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'
 
-# Configure SQLAlchemy and Bcrypt
+# Configure SQLAlchemy, Bcrypt, and Flask-Dance
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/alisa_users'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['GOOGLE_OAUTH_CLIENT_ID'] = '680127095298-t8c4s4f2auaar62lnglmjr26gs32re1k.apps.googleusercontent.com'
+app.config['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
+app.config['SECRET_KEY'] = 'supersecretkey'  # Change this to a strong secret key
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
+
+# Flask-Dance Google Blueprint
+google_bp = make_google_blueprint()
+app.register_blueprint(google_bp, url_prefix='/google_login')
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -109,8 +118,42 @@ def logout():
     flash('You have been logged out', 'info')
     return redirect(url_for("index"))
 
+# Google login route
+@app.route('/google_login')
+def google_login():
+    if not google.authorized:
+        return redirect(url_for('google.login'))
+    resp = google.get('/plus/v1/people/me')
+    assert resp.ok, resp.text
+    google_data = resp.json()
+    
+    # Check if the user with this email already exists in your database
+    user = User.query.filter_by(email=google_data['emails'][0]['value']).first()
+    
+    if not user:
+        # If the user doesn't exist, create a new user using Google data
+        new_user = User(
+            name=google_data['displayName'],
+            email=google_data['emails'][0]['value'],
+            # You might want to generate a random password for the user
+            password=bcrypt.generate_password_hash('some_random_password').decode('utf-8')
+        )
+        db.session.add(new_user)
+        db.session.commit()
+
+    # Log in the user and store user data in the session
+    session['user_id'] = user.id
+    session['email'] = user.email
+
+    # Update last login timestamp
+    user.last_login_timestamp = datetime.utcnow()
+    db.session.commit()
+
+    flash('Login successful!', 'success')
+    return redirect(url_for("index"))
+
+
 if __name__ == '__main__':
-    # Create the database tables before running the app
     with app.app_context():
         db.create_all()
     app.run(debug=True)
