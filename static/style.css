@@ -1,10 +1,19 @@
 body {
-  font-family: "Poppins", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.4;
-  background-color: rgb(7, 7, 7);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  background-color: #F1F5FF;
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  color: #060912;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+  margin-top: 150px;
 }
 
 .chat-box {
