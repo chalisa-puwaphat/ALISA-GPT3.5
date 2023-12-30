@@ -18,6 +18,7 @@
   <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+  
 </head>
 
 <body>
@@ -27,13 +28,19 @@
     <!-- Add a tab switch for device type -->
     <ul class="nav nav-tabs" id="deviceTabs">
       <li class="nav-item">
-        <a class="nav-link active" id="web-tab" data-toggle="tab" href="#web">Web</a>
+        <a class="nav-link active" id="web-tab" data-toggle="tab" href="#web">
+          <i class="fas fa-desktop"></i> Web
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="tablet-tab" data-toggle="tab" href="#tablet">Tablet</a>
+        <a class="nav-link" id="tablet-tab" data-toggle="tab" href="#tablet">
+          <i class="fas fa-tablet"></i> Tablet
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="mobile-tab" data-toggle="tab" href="#mobile">Mobile</a>
+        <a class="nav-link" id="mobile-tab" data-toggle="tab" href="#mobile">
+          <i class="fas fa-mobile-alt"></i> Mobile
+        </a>
       </li>
     </ul>
 
@@ -45,19 +52,54 @@
           <button type="button" class="btn btn-outline-primary style-btn" data-style="modern">Modern</button>
           <button type="button" class="btn btn-outline-primary style-btn" data-style="classic">Classic</button>
           <button type="button" class="btn btn-outline-primary style-btn" data-style="minimalistic">Minimalistic</button>
+          <button type="button" class="btn btn-outline-primary style-btn" data-style="techy">Techy</button>
+          <button type="button" class="btn btn-outline-primary style-btn" data-style="elegant">Elegants</button>
         </div>
 
         <div class="chat-box mt-3">
           <!-- Chat messages will be added here dynamically -->
         </div>
         <div class="form-group mt-3">
-          <textarea class="form-control" rows="3" placeholder="Type your message here" id="message-input"></textarea>
+          <textarea class="form-control" rows="3" placeholder="Tell us your desire" id="message-input"></textarea>
         </div>
-        <button type="button" class="btn btn-primary" id="send-btn">Send</button>
+        <button type="button" class="btn btn-primary" id="send-btn">Generate</button>
       </div>
       <!-- Add similar content for tablet and mobile tabs if needed -->
     </div>
   </div>
+
+   <!--------------------------------------- Footer --------------------------------------->
+   <footer class="footer mt-5">
+
+    <div class="footer-left">
+      <img src="static/images/Alisa-White-Logo.png" alt="Your Logo" class="logo">
+      <p>Join our Community</p>
+
+      <div class="separator"></div>
+      
+      <div class="social-media">
+        <img src="static/images/facebook-icon.png" alt="social-icon" class="social-icon">
+        <img src="static/images/youtube-icon.png" alt="social-icon" class="social-icon">
+        <img src="static/images/linkedin-icon.png" alt="social-icon" class="social-icon">
+      </div>
+    </div>
+
+    <div class="footer-right">
+
+      <h3>Contact Us</h3>
+      <p>Prince of Songkla University International College, Hatyai Campus<br>12th Floor, Learning Resource Center 2
+        (LRC 2)<br>15 Kanjanavanich Road, Hat Yai, Songkhla, TH 90110</p>
+
+      <div class="contact-info">
+        <img src="static/images/call-icon.png" alt="call-icon" class="call-icon">
+        <h4 class="phone-number">+66 (0) 74282831</h4>
+        <img src="static/images/email-icon.png" alt="email-icon" class="email-icon">
+        <h4 class="email">alisa@gmail.com</h4>
+      </div>
+
+    </div>
+    </div>
+</footer>
 
   <script>
     // Function to highlight code using highlight.js library
@@ -100,7 +142,7 @@
       }
 
       messageDiv.innerHTML = `
-        <img src="{{ url_for('static', filename='images/user.png') }}" class="user-icon"><p>${message}</p>
+        <img src="{{ url_for('static', filename='images/user.jpg') }}" class="user-icon"><p>${message}</p>
       `;
 
       chatBox.appendChild(messageDiv);
