@@ -1,7 +1,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.5;
-  background-color: #F1F5FF;
+  background-color: #FFFFFF;
   margin: 0;
   padding: 0;
 }
@@ -14,8 +14,44 @@ h1 {
   line-height: normal;
   text-align: center;
   margin-top: 150px;
+  margin-bottom: 50px;
 }
 
+.container {
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Set the height to 100% of the viewport height */
+}
+
+.nav-item {
+  margin-right: 10px;
+  font-family: poppins;
+}
+
+.nav-link.active {
+  color: #F1F5FF;
+  background-color:#003687;; /* Add your preferred background color */
+  border-radius: 5px; /* Optional: Add border-radius for a rounded look */
+}
+
+/* Style for inactive tabs */
+.nav-link {
+  color: #000; /* Default color for inactive tabs */
+}
+
+.btn{
+  background-color: #F1F5FF;
+  border-radius: 30px;
+}
+
+.btn :hover{
+  background-color: #003687;
+}
+
+#send-btn{
+  background-color: #003687;
+  color: #fff;
+}
 .chat-box {
   height: 350px;
   overflow: auto;
@@ -26,7 +62,7 @@ h1 {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: #F1F5FF;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -39,17 +75,16 @@ h1 {
 }
 
 .user-message {
-  background-color:#272a2b;
+  background-color:#1D59B4;
   color: #fff;
   font-size: 20px;
  
 }
 
 .bot-message {
-  background-color: #484848;
-  color: white;
+  background-color: rgba(120, 164, 229, 0.98);
+  color: rgb(0, 0, 0);
   font-size: 20px;
- 
 }
 
 .message-text pre code {
@@ -59,16 +94,140 @@ h1 {
 
 .user-icon {
   font-size: 20px;
-  margin-right: 10px;  
+  margin-right: 20px;  
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
 }
 
 .bot-icon {
   font-size: 20px;
-  margin-right: 10px;
+  margin-right: 20px;  
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
+}
+
+
+/* -------------------------------------Footer Part-------------------------------------  */
+
+.footer {
+  background-color: #00255E;
+  text-align: left; 
+  display: flex;
+  justify-content: space-between; 
+  align-items: top; /* Center items along the cross axis (vertically) */
+  /* position: fixed; */
+  width: 100%; 
+  height: 250px;
+  bottom: 0; 
+}
+
+.footer-left,.footer-right {
+  flex: 1; 
+}
+
+/* Additional styling for each column */
+.footer-left {
+  text-align: left; 
+  padding-left: 150px;
+  padding-top: 50px;
+  color: #F1F5FF;
+}
+
+.footer-left p{
+  padding-top: 20px;
+  text-align: left; 
+  font-weight: 400;
+  font-size: 18px;
+  color: #F1F5FF;
+}
+
+.separator {
+  width: 360px;
+  height: 1px;
+  background-color: #F1F5FF;
+  margin: 5px 0; /* Adjust the margin as needed */
+}
+
+.social-media{
+  display: flex;
+  align-items: center;
+}
+
+.social-icon{
+  width: 25px;
+  height: auto;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+
+.footer-right {
+  text-align: left; 
+  color: #F1F5FF;
+  padding-top: 20px;
+}
+
+.footer-right h3{
+  color: #F1F5FF;
+  text-align: left;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+.footer-right p{
+  color: #F1F5FF;
+  text-align: left;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.logo {
+  width: 35px; /* Adjust the width of the logo as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+}
+
+.call-icon {
+  width: 20px;
+  height: auto;
+  margin-right: 15px; /* Add some space between the icon and the phone number */
+}
+
+.phone-number{
+  color: #F1F5FF;
+  text-align: left;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+}
+
+.email-icon {
+  width: 20px;
+  height: auto;
+  margin-left: 50px;
+  margin-right: 15px; /* Add some space between the icon and the phone number */
+}
+
+.email{
+  color: #F1F5FF;
+  text-align: left;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
 }
