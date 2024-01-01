@@ -6,6 +6,42 @@ body {
   padding: 0;
 }
 
+/* -------------------------------------Navigation Bar Part-------------------------------------  */
+
+.navbar {
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.navbar-logo img {
+  width: 40px; /* Adjust the width as needed */
+  height: auto;
+}
+
+.navbar-links ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: 003687;
+  font-weight: 500;
+  font-size: 16px;
+  padding-left: 30px;
+  color: #003687;
+  text-align: center;
+  font-family: Poppins;
+  font-style: normal;
+  line-height: normal;
+}
+
 h1 {
   color: #060912;
   font-size: 40px;
@@ -13,7 +49,7 @@ h1 {
   font-weight: 600;
   line-height: normal;
   text-align: center;
-  margin-top: 150px;
+  margin-top: 80px;
   margin-bottom: 50px;
 }
 
