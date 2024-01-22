@@ -4,54 +4,72 @@ body {
   background-color: #FFFFFF;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
 }
 
-/* -------------------------------------Navigation Bar Part-------------------------------------  */
-
 .navbar {
-  background-color: #FFFFFF;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  height: 60px;
+  /* Adjust as needed */
+}
+
+.navbar-left {
+  flex: 1;
+  display: flex;
   align-items: center;
-  padding-top: 50px;
-  padding-left: 150px;
-  padding-right: 150px;
+  background-color: #F1F5FF;
 }
 
 .navbar-logo img {
-  width: 40px; /* Adjust the width as needed */
+  width: 40px;
   height: auto;
+  margin-top: 40px;
+  margin-left: 100px;
+  position: absolute;
+  z-index: 2;
 }
 
-.navbar-links ul {
-  list-style: none;
+.navbar-right {
+  flex: 2;
   display: flex;
-  gap: 20px;
+  align-items: flex-end;
+  height: 88vh;
 }
 
-.navbar-links li a {
-  text-decoration: none;
-  color: 003687;
-  font-weight: 500;
-  font-size: 16px;
-  padding-left: 30px;
-  color: #003687;
-  text-align: center;
-  font-family: Poppins;
-  font-style: normal;
-  line-height: normal;
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  height: 88vh;
 }
 
-h2 {
-  color: #003687;
-  text-align: left;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 550;
-  line-height: normal;
-  margin-top: 80px;
-  margin-left: 1030px;
-  margin-bottom: 0;
+.left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #F1F5FF;
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.images img {
+  width: 150px;
+  height: auto;
+  margin-top: 0px;
+}
+
+.right-section {
+  flex: 2;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -61,27 +79,59 @@ h1 {
   font-weight: 600;
   line-height: normal;
   text-align: left;
-  margin-left: 1030px;
-  margin-top: 5px;
+  margin-left: 450px;
+  margin-top: 200px;
+  margin-bottom: 0px;
+}
+
+p.mt-3 {
+  color: #1D59B4;
+  margin-top: 0px;
+  margin-left: 450px;
+  padding-top: 5px;
+  margin-bottom: 50px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+p.mt-3 a {
+  color: #003687;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: none;
 }
 
 .input-box {
   width: 400px;
   height: 100px;
   flex-shrink: 0;
-  margin-left: 1030px;
+  margin-left: 450px;
+  margin-bottom: -15px;
+  position: relative;
 }
 
-.input-box label,
+.input-box i {
+  position: absolute;
+  border: none;
+  font-size: 23px;
+  color: #999;
+  padding-right: 30px;
+  transition: color 0.3s ease;
+}
+
+.input-box input:focus+i,
+.input-box input:valid+i,
+.input-box input:not(:placeholder-shown)+i {
+  color: #1D59B4;
+}
+
 .input-box input {
   font-family: 'Poppins', sans-serif;
-}
-
-.input-box label {
-  display: block;
-  margin-bottom: 5px;
-  color: #00255E;;
-  width: 515px;
+  font-size: 14px;
 }
 
 .input-box input {
@@ -91,15 +141,21 @@ h1 {
   padding-right: 20px;
   box-sizing: border-box;
   margin-bottom: 10px;
-  border-radius: 10px;
-  background: #F1F5FF;
-  box-shadow: 3px 3px 5px 0px rgba(143, 143, 143, 0.25);
-  border: none; /* Remove the border */
-  outline: none; /* Remove the default outline */
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #ccc;
+  border-top: 2px solid transparent;
+  text-indent: 20px;
+  /* Set the text indent to match the padding-left */
+}
+
+.input-box input:focus {
+  border-bottom: 2px solid #1D59B4;
+  border-top: 2px solid transparent;
 }
 
 .btn-primary {
-  background-color: #003687;
+  background-color: #1D59B4;
   color: #ffffff;
   padding: 8px 30px;
   border: none;
@@ -108,148 +164,47 @@ h1 {
   font-family: poppins;
   font-size: 16px;
   font-weight: 500;
-  margin-left: 1180px;
+  margin-left: 580px;
   margin-top: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add transition for a smooth effect */
 }
 
-p.mt-3 {
-  color: #1D59B4;;
-  margin-left: 1130px;
-  margin-bottom: 80px;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+.btn-primary:hover {
+  background-color: #060912; /* Change to the desired hover background color */
+  color: #ffffff; /* Change to the desired hover text color */
 }
 
-p.mt-3 a {
-  color: #003687; 
-  text-decoration: underline;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-/* -------------------------------------Footer Part-------------------------------------  */
 
 .footer {
-  background-color: #00255E;
-  text-align: left; 
+  height: 5.4vh;
+  /* Adjust as needed */
+  background-color: #1D59B4;
   display: flex;
-  justify-content: space-between; 
-  align-items: top; /* Center items along the cross axis (vertically) */
-  position: fixed;
-  width: 100%; 
-  height: 250px;
-  bottom: 0; 
-}
-
-.footer-left,.footer-right {
-  flex: 1; 
-}
-
-/* Additional styling for each column */
-.footer-left {
-  text-align: left; 
-  padding-left: 150px;
-  padding-top: 50px;
-  color: #F1F5FF;
-}
-
-.footer-left p{
-  padding-top: 20px;
-  text-align: left; 
-  font-weight: 400;
-  font-size: 18px;
-  color: #F1F5FF;
-}
-
-.separator {
-  width: 360px;
-  height: 1px;
-  background-color: #F1F5FF;
-  margin: 5px 0; /* Adjust the margin as needed */
-}
-
-.social-media{
-  display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding-left: 100px;
+  /* Adjust padding as needed */
+  padding-right: 100px;
 }
 
-.social-icon{
-  width: 25px;
-  height: auto;
-  margin-right: 15px;
-  margin-top: 10px;
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #F1F5FF;
 }
 
 .footer-right {
-  text-align: left; 
-  color: #F1F5FF;
-  padding-top: 20px;
-}
-
-.footer-right h3{
-  color: #F1F5FF;
-  text-align: left;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 150%;
-}
-
-.footer-right p{
-  color: #F1F5FF;
-  text-align: left;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-
-.logo {
-  width: 35px; /* Adjust the width of the logo as needed */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.contact-info {
   display: flex;
-  align-items: center;
+  gap: 5px;
+  /* Adjust the gap between social icons */
+  padding-bottom: 5px;
+  text-align: left;
+  color: #F1F5FF;
 }
 
-.call-icon {
+.social-icon {
   width: 20px;
   height: auto;
-  margin-right: 15px; /* Add some space between the icon and the phone number */
-}
-
-.phone-number{
-  color: #F1F5FF;
-  text-align: left;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-
-.contact-info {
-  display: flex;
-  align-items: center;
-}
-
-.email-icon {
-  width: 20px;
-  height: auto;
-  margin-left: 50px;
-  margin-right: 15px; /* Add some space between the icon and the phone number */
-}
-
-.email{
-  color: #F1F5FF;
-  text-align: left;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
+  margin-right: 15px;
+  margin-top: 10px;
 }
