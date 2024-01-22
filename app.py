@@ -6,9 +6,13 @@ from datetime import datetime
 from flask import redirect
 
 import openai
+import secrets
+
 
 app = Flask(__name__)
-app.secret_key = 'alisa'  # Change this to a secret key for session management
+import secrets
+app.secret_key = secrets.token_hex(16)
+
 
 # Set up OpenAI API credentials
 openai.api_key = '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'
@@ -17,8 +21,8 @@ openai.api_key = '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'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/alisa_users'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['GOOGLE_OAUTH_CLIENT_ID'] = '680127095298-t8c4s4f2auaar62lnglmjr26gs32re1k.apps.googleusercontent.com'
-app.config['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
-app.config['SECRET_KEY'] = 'supersecretkey'  # Change this to a strong secret key
+app.config['GOOGLE_OAUTH_CLIENT_SECRET'] = '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' 
+app.config['SECRET_KEY'] = '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'  # Change this to a strong secret key
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
@@ -29,7 +33,6 @@ app.register_blueprint(google_bp, url_prefix='/google_login')
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
-    lastname = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
     signup_timestamp = db.Column(db.DateTime, default=datetime.utcnow)
@@ -131,15 +134,24 @@ def google_login():
     user = User.query.filter_by(email=google_data['emails'][0]['value']).first()
     
     if not user:
-        # If the user doesn't exist, create a new user using Google data
+    # If the user doesn't exist, create a new user using Google data
         new_user = User(
-            name=google_data['displayName'],
-            email=google_data['emails'][0]['value'],
-            # You might want to generate a random password for the user
-            password=bcrypt.generate_password_hash('some_random_password').decode('utf-8')
-        )
-        db.session.add(new_user)
-        db.session.commit()
+        name=google_data['displayName'],
+        email=google_data['emails'][0]['value'],
+        # You might want to generate a random password for the user
+        password=bcrypt.generate_password_hash('some_random_password').decode('utf-8')
+    )
+    db.session.add(new_user)
+    db.session.commit()
+
+    # Log in the user and store user data in the session
+    session['user_id'] = new_user.id
+    session['email'] = new_user.email
+
+    # Update last login timestamp
+    new_user.last_login_timestamp = datetime.utcnow()
+    db.session.commit()
+
 
     # Log in the user and store user data in the session
     session['user_id'] = user.id
