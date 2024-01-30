@@ -43,6 +43,11 @@ class User(db.Model):
 def index():
     return render_template("index.html")
 
+@app.route('/home')
+def homepage():
+    # This is the new route for the homepage
+    return render_template('home.html')
+
 # Define the /api route to handle POST requests
 @app.route("/api", methods=["POST"])
 def api():
