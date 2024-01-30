@@ -1,0 +1,330 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+}
+
+.hero {
+    background-color: #FFFFFF;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 50px;
+}
+
+.navbar-logo{
+    padding-bottom: 30px;
+}
+
+.navbar-logo img {
+    width: 40px;
+    height: auto;
+    position: absolute;
+    cursor: pointer;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 25px;
+}
+
+nav ul li a {
+    color: #003687;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 120%;
+    left: 0;
+    width: 0;
+    height: 2.8px;
+    background: #003687;
+    transition: .3s;
+}
+
+nav ul li a:hover:before {
+    width: 100%;
+    font-weight: bold;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+    padding-left: 12%;
+    padding-right: 12%;
+    padding-top: 80px
+}
+
+.content .textBox{
+    position: relative;
+    max-width: 600px;
+}
+
+.content .textBox h1 {
+    color: #003687;
+    margin: 20px 0px 20px;
+    font-size: 64px;
+}
+
+span {
+    color: #78A4E5;
+}
+
+.content .textBox h2 {
+    color: #003687;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.btn-primary {
+    background-color: #1D59B4;
+    color: #ffffff;
+    padding: 8px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: poppins;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Add transition for a smooth effect */
+}
+
+.btn-primary:hover {
+    background-color: #060912;
+    /* Change to the desired hover background color */
+    color: #ffffff;
+    /* Change to the desired hover text color */
+}
+
+.down{
+    margin-top: 100px;
+}
+.down i {
+    font-size: 50px;
+    color: #003687;
+    margin-left: 920px;
+    padding-top: 100px;
+    cursor: pointer;
+}
+
+.feature{
+    background: #F1F5FF;
+    width: 100%;
+    padding-bottom: 0;
+    padding: 100px 0px;
+}
+
+.title h3{
+    color: #003687;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #F1F5FF;
+    line-height: 1.5;
+    padding-top: 30px;
+    padding-bottom:30px;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    background-color: #F1F5FF;
+    margin-bottom: 0;
+    gap: 100px;
+}
+
+.card{
+    height: 365px;
+    width: 335px;
+    padding: 20px 35px;
+    background: #F1F5FF;
+    border-radius: 20px;
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card img{
+    height: 150px;
+    width: auto;
+    align-items: center;
+    background-color: #F1F5FF;
+    margin: 30px 0;
+}
+
+h4{
+    color: #003687;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    background-color: #F1F5FF;
+}
+
+.pra p{
+    color: #060912;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    background-color: #F1F5FF;
+}
+
+h3{
+    color: #F1F5FF;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #1D59B4;
+    line-height: 1.5;
+    padding-top: 100px;
+    padding-bottom:50px;
+}
+
+.process-wrapper{
+    margin: auto;
+    max-width: 1080px;
+}
+
+#progress-bar-container{
+    position: relative;
+    width: 90%;
+    margin: auto;
+    height: 100px;
+    margin-top: 59px;
+}
+
+#progress-bar-container ul{
+    padding: 0;
+    margin: 0;
+    padding-top: 15px;
+    z-index: 9999;
+    position: absolute;
+    width: 100%;
+    margin-top: -40px;
+}
+
+#progress-bar-container li::before{
+    content: '';
+    display: block;
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: solid 2px #aaa;
+    transition: all ease 0.3s;
+}
+
+#progress-bar-container li.active::before,
+#progress-bar-container li:hover::before{
+    background: deepskyblue;
+}
+
+#progress-bar-container li{
+    list-style: none;
+    float: left;
+    width: 20%;
+    text-align: center;
+    color: #aaa;
+    font-size: 11px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all ease 0.3s;
+    vertical-align: bottom;
+    height: 59px;
+    position: relative;
+}
+
+#progress-bar-container li.step-inner{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    font-size: 14px;
+}
+
+#progress-bar-container li.active,
+#progress-bar-container li:hover{
+    color: deepskyblue;
+}
+
+#progress-bar-container li::after{
+    content: '';
+    display: block;
+    width: 5px;
+    height: 5px;
+    background: #777;
+    margin: auto;
+    border: solid 7px white;
+    border-radius: 50%;
+    margin-top: 40px;
+    box-shadow: 0 2px 13px -1px rgba(0,0,0,0.3);
+    transition: all ease 0.3s;
+}
+
+#progress-bar-container li:hover::after{
+    background: deepskyblue;
+}
+
+#progress-bar-container li.active::after{
+    background: deepskyblue;
+}
+
+#progress-bar-container #line{
+    width: 80%;
+    margin: auto;
+    background: #eee;
+    height: 5px;
+    position: absolute;
+    left: 10%;
+    top: 57px;
+    z-index: 1;
+    border-radius: 50px;
+    transition: all ease 0.9s;
+}
+
+#progress-bar-container #line-process{
+    content: '';
+    width: 3%;
+    height: 100%;
+    background: deepskyblue;
+    background: linear-gradient(to right, deepskyblue 0%), #2ea3b7 100%;
+    position: absolute;
+    z-index: 2;
+    border-radius: 50px;
+    transition: all ease 0.9s;
+}
+
+#progress-content-section{
+    width: 90%;
+    margin: auto;
+    background: #f3f3f3;
+    border-radius: 4px;
+}
+
+#progress-content-section .section-content{
+    padding: 30px 40px;
+    text-align: center;
+}
