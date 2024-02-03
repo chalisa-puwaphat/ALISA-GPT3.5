@@ -21,10 +21,10 @@
         <img src="static/images/Alisa-Blue-Logo.png" alt="Your Logo">
       </div>
       <ul>
-        <li><a href="#">Home</a></li>
+        <li><a href="home">Home</a></li>
         <li><a href="#">Generate Prompt</a></li>
         <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Login</a></li>
+        <li><a href="login">Login</a></li>
       </ul>
     </nav>
 
@@ -33,7 +33,9 @@
         <h1>SENIOR <span>UI</span> PROMPT</h1>
         <h2>Boost seniors' digital confidence. Spark creativity with our <br>prompt generator. ALISA: Unleash fresh ideas
           and endless<br>possibilities for designers and developers.</h2>
-        <button type="submit" class="btn btn-primary mt-3">Get Start</button>
+        <a href="signup">
+          <button type="submit" class="btn btn-primary mt-3">Get Start</button>
+        </a>
       </div>
       <div class="imgBox">
         <img src="static/images/background.png" class="head">
@@ -41,11 +43,23 @@
     </div>
 
     <div class="down">
-      <i class="uil uil-angle-double-down"></i>
+      <a href="#targetFeature">
+        <i class="uil uil-angle-double-down"></i>
+      </a>
     </div>
   </div>
 
-  <section class="feature">
+  <div class="gear">
+        <img src="static/images/Gear.png" alt="">
+        <img src="static/images/Gear.png" alt="">
+        <img src="static/images/Gear.png" alt="">
+        <img src="static/images/Gear.png" alt="">
+        <img src="static/images/Gear.png" alt="">
+        <img src="static/images/Gear.png" alt="">
+        <img src="static/images/Gear.png" alt="">
+      </div>
+
+  <section id="targetFeature" class="feature">
     <div class="title">
       <h3>Exclusive features for your next groundbreaking projects</h3>
     </div>
@@ -80,7 +94,7 @@
     </div>
   </section>
 
-  <section class="steps">
+  <!-- <section class="steps">
     <h3>4 steps with ALISA</h3>
 
     <div class="process-wrapper">
@@ -122,7 +136,39 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+
+<section>
+  <div class="footer">
+    <div class="footer-left">
+      <p>Join ALISA Community</p>
+    </div>
+    <div class="footer-right">
+      <img src="static/images/facebook-icon.png" alt="social-icon" class="social-icon">
+      <img src="static/images/youtube-icon.png" alt="social-icon" class="social-icon">
+      <img src="static/images/linkedin-icon.png" alt="social-icon" class="social-icon">
+    </div>
+  </div>
+</section>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const steps = document.querySelectorAll("#progress-bar-container li");
+      const contentSections = document.querySelectorAll(".section-content");
+  
+      steps.forEach((step, index) => {
+        step.addEventListener("click", function () {
+          // Remove active class from all steps and content sections
+          steps.forEach((s) => s.classList.remove("active"));
+          contentSections.forEach((c) => c.classList.remove("active"));
+  
+          // Add active class to the clicked step and corresponding content section
+          this.classList.add("active");
+          contentSections[index].classList.add("active");
+        });
+      });
+    });
+  </script>
+  
 
  
 
