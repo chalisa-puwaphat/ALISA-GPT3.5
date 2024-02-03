@@ -24,7 +24,7 @@ nav {
     padding-bottom: 50px;
 }
 
-.navbar-logo{
+.navbar-logo {
     padding-bottom: 30px;
 }
 
@@ -57,11 +57,16 @@ nav ul li a::before {
     height: 2.8px;
     background: #003687;
     transition: .3s;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    font-weight: 600;
 }
 
 nav ul li a:hover:before {
     width: 100%;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .content {
@@ -69,31 +74,135 @@ nav ul li a:hover:before {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;   
+    align-items: center;
     padding-left: 12%;
     padding-right: 12%;
-    padding-top: 80px
+    padding-top: 80px;
 }
 
-.content .textBox{
+.content .textBox {
     position: relative;
     max-width: 600px;
+    z-index: 11;
 }
 
 .content .textBox h1 {
+    overflow: hidden;
+    border-right: 2px solid #003687;
     color: #003687;
+    white-space: nowrap;
     margin: 20px 0px 20px;
     font-size: 64px;
+    z-index: 10;
+    position: relative;
+    animation: typing 8s steps(20, end) infinite, blink-caret 0.75s step-end 2s infinite;
 }
+
+@keyframes blink-caret {
+    from, to {
+      border-right-color: transparent;
+    }
+    50% {
+      border-right-color: #78A4E5;
+    }
+  }
 
 span {
     color: #78A4E5;
+    z-index: 10;
 }
+
+@keyframes typing {
+    0%, 100% {
+      width: 0;
+    }
+    50%, 90% {
+      width: 100%;
+    }
+    95%, 100% {
+      width: 100%;
+      visibility: hidden;
+    }
+  }
 
 .content .textBox h2 {
     color: #003687;
     font-weight: 400;
     font-size: 20px;
+    z-index: 100;
+}
+
+.gear img{
+    width: 30px;
+    z-index: 0;
+    opacity: 0;
+    animation: gear 7s linear infinite;
+}
+
+@keyframes gear{
+    0%{
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-80vh);
+        opacity: 0;
+    }
+}
+
+.gear img:nth-child(1){
+    animation-delay: 2s;
+    width: 25px;
+}
+
+.gear img:nth-child(2){
+    animation-delay: 1s;
+}
+
+.gear img:nth-child(3){
+    animation-delay: 3s;
+    width: 25px;
+}
+
+.gear img:nth-child(4){
+    animation-delay: 4.5s;
+}
+
+.gear img:nth-child(5){
+    animation-delay: 3s;
+}
+
+.gear img:nth-child(6){
+    animation-delay: 6s;
+    width: 20px;
+}
+
+.gear img:nth-child(7){
+    animation-delay: 7s;
+    width: 25px;
+}
+
+.gear{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom:0;
+}
+
+.imgBox{
+    z-index: 10;
+}
+
+.imgBox img{
+    width: 600px;
 }
 
 .btn-primary {
@@ -118,9 +227,11 @@ span {
     /* Change to the desired hover text color */
 }
 
-.down{
+.down {
     margin-top: 100px;
+    z-index: 10;
 }
+
 .down i {
     font-size: 50px;
     color: #003687;
@@ -129,14 +240,14 @@ span {
     cursor: pointer;
 }
 
-.feature{
+.feature {
     background: #F1F5FF;
     width: 100%;
     padding-bottom: 0;
     padding: 100px 0px;
 }
 
-.title h3{
+.title h3 {
     color: #003687;
     font-size: 24px;
     font-weight: 600;
@@ -144,10 +255,10 @@ span {
     background-color: #F1F5FF;
     line-height: 1.5;
     padding-top: 30px;
-    padding-bottom:30px;
+    padding-bottom: 30px;
 }
 
-.box{
+.box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,7 +268,7 @@ span {
     gap: 100px;
 }
 
-.card{
+.card {
     height: 365px;
     width: 335px;
     padding: 20px 35px;
@@ -169,7 +280,7 @@ span {
     text-align: center;
 }
 
-.card img{
+.card img {
     height: 150px;
     width: auto;
     align-items: center;
@@ -177,7 +288,7 @@ span {
     margin: 30px 0;
 }
 
-h4{
+h4 {
     color: #003687;
     font-size: 20px;
     font-weight: 600;
@@ -185,7 +296,7 @@ h4{
     background-color: #F1F5FF;
 }
 
-.pra p{
+.pra p {
     color: #060912;
     font-size: 16px;
     line-height: 1.5;
@@ -193,7 +304,7 @@ h4{
     background-color: #F1F5FF;
 }
 
-h3{
+h3 {
     color: #F1F5FF;
     font-size: 24px;
     font-weight: 600;
@@ -201,15 +312,15 @@ h3{
     background-color: #1D59B4;
     line-height: 1.5;
     padding-top: 100px;
-    padding-bottom:50px;
+    padding-bottom: 50px;
 }
 
-.process-wrapper{
+.process-wrapper {
     margin: auto;
     max-width: 1080px;
 }
 
-#progress-bar-container{
+#progress-bar-container {
     position: relative;
     width: 90%;
     margin: auto;
@@ -217,7 +328,7 @@ h3{
     margin-top: 59px;
 }
 
-#progress-bar-container ul{
+#progress-bar-container ul {
     padding: 0;
     margin: 0;
     padding-top: 15px;
@@ -227,7 +338,7 @@ h3{
     margin-top: -40px;
 }
 
-#progress-bar-container li::before{
+#progress-bar-container li::before {
     content: '';
     display: block;
     margin: auto;
@@ -239,11 +350,11 @@ h3{
 }
 
 #progress-bar-container li.active::before,
-#progress-bar-container li:hover::before{
+#progress-bar-container li:hover::before {
     background: deepskyblue;
 }
 
-#progress-bar-container li{
+#progress-bar-container li {
     list-style: none;
     float: left;
     width: 20%;
@@ -258,7 +369,7 @@ h3{
     position: relative;
 }
 
-#progress-bar-container li.step-inner{
+#progress-bar-container li.step-inner {
     position: absolute;
     width: 100%;
     bottom: 0;
@@ -266,11 +377,11 @@ h3{
 }
 
 #progress-bar-container li.active,
-#progress-bar-container li:hover{
+#progress-bar-container li:hover {
     color: deepskyblue;
 }
 
-#progress-bar-container li::after{
+#progress-bar-container li::after {
     content: '';
     display: block;
     width: 5px;
@@ -280,19 +391,19 @@ h3{
     border: solid 7px white;
     border-radius: 50%;
     margin-top: 40px;
-    box-shadow: 0 2px 13px -1px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 13px -1px rgba(0, 0, 0, 0.3);
     transition: all ease 0.3s;
 }
 
-#progress-bar-container li:hover::after{
+#progress-bar-container li:hover::after {
     background: deepskyblue;
 }
 
-#progress-bar-container li.active::after{
+#progress-bar-container li.active::after {
     background: deepskyblue;
 }
 
-#progress-bar-container #line{
+#progress-bar-container #line {
     width: 80%;
     margin: auto;
     background: #eee;
@@ -305,7 +416,7 @@ h3{
     transition: all ease 0.9s;
 }
 
-#progress-bar-container #line-process{
+#progress-bar-container #line-process {
     content: '';
     width: 3%;
     height: 100%;
@@ -317,14 +428,54 @@ h3{
     transition: all ease 0.9s;
 }
 
-#progress-content-section{
+#progress-content-section {
     width: 90%;
     margin: auto;
     background: #f3f3f3;
     border-radius: 4px;
 }
 
-#progress-content-section .section-content{
+#progress-content-section .section-content {
     padding: 30px 40px;
     text-align: center;
 }
+
+.footer {
+    height: 5.4vh;
+    /* Adjust as needed */
+    background-color: #1D59B4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 100px;
+    /* Adjust padding as needed */
+    padding-right: 100px;  
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #F1F5FF;
+    background-color: #1D59B4;
+}
+
+.footer-right {
+    display: flex;
+    gap: 5px;
+    /* Adjust the gap between social icons */
+    padding-bottom: 5px;
+    text-align: left;
+    color: #F1F5FF;
+    background-color: #1D59B4;
+}
+  
+  .social-icon {
+    width: 20px;
+    height: auto;
+    margin-right: 15px;
+    margin-top: 10px;
+    background-color: #1D59B4;
+    cursor: pointer;
+}
+  
+
