@@ -8,38 +8,60 @@ body {
 
 /* -------------------------------------Navigation Bar Part-------------------------------------  */
 
-.navbar {
-  background-color: #FFFFFF;
+nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding-top: 50px;
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 50px;
+}
+
+.navbar-logo {
+  padding-bottom: 30px;
 }
 
 .navbar-logo img {
-  width: 40px; /* Adjust the width as needed */
+  width: 40px;
   height: auto;
+  position: absolute;
+  cursor: pointer;
 }
 
-.navbar-links ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 10px 25px;
 }
 
-.navbar-links li a {
-  text-decoration: none;
-  color: 003687;
-  font-weight: 500;
-  font-size: 16px;
-  padding-left: 30px;
+nav ul li a {
   color: #003687;
-  text-align: center;
-  font-family: Poppins;
-  font-style: normal;
-  line-height: normal;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+nav ul li a::before {
+  content: '';
+  position: absolute;
+  top: 120%;
+  left: 0;
+  width: 0;
+  height: 2.8px;
+  background: #003687;
+  transition: .3s;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+nav ul li a:hover:before {
+  width: 100%;
+  font-weight: 600;
 }
 
 h1 {
@@ -148,122 +170,40 @@ h1 {
 /* -------------------------------------Footer Part-------------------------------------  */
 
 .footer {
-  background-color: #00255E;
-  text-align: left; 
+  height: 5.4vh;
+  /* Adjust as needed */
+  background-color: #1D59B4;
   display: flex;
-  justify-content: space-between; 
-  align-items: top; /* Center items along the cross axis (vertically) */
-  /* position: fixed; */
-  width: 100%; 
-  height: 250px;
-  bottom: 0; 
-}
-
-.footer-left,.footer-right {
-  flex: 1; 
-}
-
-/* Additional styling for each column */
-.footer-left {
-  text-align: left; 
-  padding-left: 150px;
-  padding-top: 50px;
-  color: #F1F5FF;
-}
-
-.footer-left p{
-  padding-top: 20px;
-  text-align: left; 
-  font-weight: 400;
-  font-size: 18px;
-  color: #F1F5FF;
-}
-
-.separator {
-  width: 360px;
-  height: 1px;
-  background-color: #F1F5FF;
-  margin: 5px 0; /* Adjust the margin as needed */
-}
-
-.social-media{
-  display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding-left: 100px;
+  /* Adjust padding as needed */
+  padding-right: 100px;
 }
 
-.social-icon{
-  width: 25px;
-  height: auto;
-  margin-right: 15px;
-  margin-top: 10px;
+.footer-left h6 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #F1F5FF !important;
+  background-color: #1D59B4;
 }
 
 .footer-right {
-  text-align: left; 
-  color: #F1F5FF;
-  padding-top: 20px;
-}
-
-.footer-right h3{
-  color: #F1F5FF;
-  text-align: left;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 150%;
-}
-
-.footer-right p{
-  color: #F1F5FF;
-  text-align: left;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-
-.logo {
-  width: 35px; /* Adjust the width of the logo as needed */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.contact-info {
   display: flex;
-  align-items: center;
+  gap: 5px;
+  /* Adjust the gap between social icons */
+  padding-bottom: 5px;
+  text-align: left;
+  color: #F1F5FF;
+  background-color: #1D59B4;
 }
 
-.call-icon {
+.social-icon {
   width: 20px;
   height: auto;
-  margin-right: 15px; /* Add some space between the icon and the phone number */
-}
-
-.phone-number{
-  color: #F1F5FF;
-  text-align: left;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-
-.contact-info {
-  display: flex;
-  align-items: center;
-}
-
-.email-icon {
-  width: 20px;
-  height: auto;
-  margin-left: 50px;
-  margin-right: 15px; /* Add some space between the icon and the phone number */
-}
-
-.email{
-  color: #F1F5FF;
-  text-align: left;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
+  margin-right: 15px;
+  margin-top: 10px;
+  background-color: #1D59B4;
+  cursor: pointer;
 }
