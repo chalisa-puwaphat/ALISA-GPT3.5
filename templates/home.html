@@ -24,7 +24,7 @@
       </div>
       <ul>
         <li><a href="home">Home</a></li>
-        <li><a href="#">Generate Prompt</a></li>
+        <li><a href="generate">Generate Prompt</a></li>
         <li><a href="contact">Contact Us</a></li>
         <li><a href="login">Login</a></li>
       </ul>
@@ -33,7 +33,8 @@
     <div class="content">
       <div class="textBox">
         <h1>SENIOR <span>UI</span> PROMPT</h1>
-        <h2>Boost seniors' digital confidence. Spark creativity with our <br>prompt generator. ALISA: Unleash fresh ideas
+        <h2>Boost seniors' digital confidence. Spark creativity with our <br>prompt generator. ALISA: Unleash fresh
+          ideas
           and endless<br>possibilities for designers and developers.</h2>
         <a href="signup">
           <button type="submit" class="btn btn-primary mt-3">Get Start</button>
@@ -52,14 +53,14 @@
   </div>
 
   <div class="gear">
-        <img src="static/images/Gear.png" alt="">
-        <img src="static/images/Gear.png" alt="">
-        <img src="static/images/Gear.png" alt="">
-        <img src="static/images/Gear.png" alt="">
-        <img src="static/images/Gear.png" alt="">
-        <img src="static/images/Gear.png" alt="">
-        <img src="static/images/Gear.png" alt="">
-      </div>
+    <img src="static/images/Gear.png" alt="">
+    <img src="static/images/Gear.png" alt="">
+    <img src="static/images/Gear.png" alt="">
+    <img src="static/images/Gear.png" alt="">
+    <img src="static/images/Gear.png" alt="">
+    <img src="static/images/Gear.png" alt="">
+    <img src="static/images/Gear.png" alt="">
+  </div>
 
   <section id="targetFeature" class="feature">
     <div class="title">
@@ -96,11 +97,14 @@
     </div>
   </section>
 
-  <section class="why-section">
+  <section tabindex="0" class="why-section">
     <div class="why-content">
       <div class="why-text">
         <h3>Why choose Alisa?</h3>
-        <p>ALISA, which stands for "Adaptive Learning Interface for Senior Assistance,"<br>is not just another artificial intelligence. It's your digital companion, carefully<br>designed to understand the unique needs, challenges, and preferences of<br>the senior community. Our journey began with the vision of creating an AI<br>solution that could truly make a difference in the lives of seniors.</p>
+        <p>ALISA, which stands for "Adaptive Learning Interface for Senior Assistance,"<br>is not just another
+          artificial intelligence. It's your digital companion, carefully<br>designed to understand the unique needs,
+          challenges, and preferences of<br>the senior community. Our journey began with the vision of creating an
+          AI<br>solution that could truly make a difference in the lives of seniors.</p>
       </div>
       <div class="why-image">
         <img src="static/images/older.png" alt="Why Alisa Image">
@@ -108,31 +112,30 @@
     </div>
   </section>
 
-
-<section>
-  <div class="footer">
-    <div class="footer-left">
-      <h6>Join ALISA Community</h6>
+  <section>
+    <div class="footer">
+      <div class="footer-left">
+        <h6>Join ALISA Community</h6>
+      </div>
+      <div class="footer-right">
+        <img src="static/images/facebook-icon.png" alt="social-icon" class="social-icon">
+        <img src="static/images/youtube-icon.png" alt="social-icon" class="social-icon">
+        <img src="static/images/linkedin-icon.png" alt="social-icon" class="social-icon">
+      </div>
     </div>
-    <div class="footer-right">
-      <img src="static/images/facebook-icon.png" alt="social-icon" class="social-icon">
-      <img src="static/images/youtube-icon.png" alt="social-icon" class="social-icon">
-      <img src="static/images/linkedin-icon.png" alt="social-icon" class="social-icon">
-    </div>
-  </div>
-</section>
+  </section>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const steps = document.querySelectorAll("#progress-bar-container li");
       const contentSections = document.querySelectorAll(".section-content");
-  
+
       steps.forEach((step, index) => {
         step.addEventListener("click", function () {
           // Remove active class from all steps and content sections
           steps.forEach((s) => s.classList.remove("active"));
           contentSections.forEach((c) => c.classList.remove("active"));
-  
+
           // Add active class to the clicked step and corresponding content section
           this.classList.add("active");
           contentSections[index].classList.add("active");
@@ -140,11 +143,11 @@
       });
     });
   </script>
-  
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const cards = document.querySelectorAll(".card");
-  
+
       function isElementInViewport(el) {
         const rect = el.getBoundingClientRect();
         return (
@@ -154,7 +157,7 @@
           rect.right <= (window.innerWidth || document.documentElement.clientWidth)
         );
       }
-  
+
       function handleCardAnimation() {
         cards.forEach((card, index) => {
           if (isElementInViewport(card)) {
@@ -164,61 +167,41 @@
           }
         });
       }
-  
+
       // Attach the scroll event listener
       window.addEventListener("scroll", handleCardAnimation);
-  
+
       // Trigger the animation on page load
       handleCardAnimation();
     });
   </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const whySection = document.querySelector(".why-section");
-    const whyText = document.querySelector(".why-text");
-    const whyImage = document.querySelector(".why-image");
-    let animationStarted = false;
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const whySection = document.querySelector(".why-section");
+      const whyText = document.querySelector(".why-text");
+      const whyImage = document.querySelector(".why-image");
+      let animationStarted = false;
 
-    function isElementFullyInViewport(el) {
-      const rect = el.getBoundingClientRect();
-      return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      );
-    }
+      const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5, // Adjust this threshold based on your needs
+      };
 
-    function handleSlideAnimation() {
-      if (isElementFullyInViewport(whyText) && isElementFullyInViewport(whyImage) && !animationStarted) {
-        whyText.classList.add("slide-in-left");
-        whyImage.classList.add("slide-in-right");
-        animationStarted = true;
-      }
-    }
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !animationStarted) {
+            whyText.classList.add("slide-in-left");
+            whyImage.classList.add("slide-in-right");
+            animationStarted = true;
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
 
-    // Attach the scroll event listener
-    window.addEventListener("scroll", handleSlideAnimation);
-
-    // Trigger the animation on page load if already in view
-    handleSlideAnimation();
-  });
-</script>
-
-
-
-
-
-
-
-
-
-  
- 
-
-
-
+      observer.observe(whySection);
+    });
+  </script>
 </body>
-
 </html>
