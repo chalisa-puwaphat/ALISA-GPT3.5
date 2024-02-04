@@ -1,0 +1,345 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+}
+
+.hero {
+    background-color: #FFFFFF;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 50px;
+}
+
+.navbar-logo {
+    padding-bottom: 30px;
+}
+
+.navbar-logo img {
+    width: 40px;
+    height: auto;
+    position: absolute;
+    cursor: pointer;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 25px;
+}
+
+nav ul li a {
+    color: #003687;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 120%;
+    left: 0;
+    width: 0;
+    height: 2.8px;
+    background: #003687;
+    transition: .3s;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    font-weight: 600;
+}
+
+nav ul li a:hover:before {
+    width: 100%;
+    font-weight: 600;
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background: #FFFFFF;
+    bottom: 0;
+    margin-bottom: 0;
+}
+
+.container{
+    position: relative;
+    min-width: 1500px;
+    min-height: 700px;
+    display: flex;
+    z-index: 1000;
+    background: #FFFFFF;
+    bottom: 0;
+}
+
+.container .contactInfo{
+    position: absolute;
+    top: 40px;
+    width: 550px;
+    height: calc(100% - 80px);
+    background: #1D59B4;
+    z-index: 1;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.container .contactInfo h2{
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 500;
+    background-color: #1D59B4;
+    padding-bottom: 30px;
+}
+
+.container .contactInfo ul.info{
+    position: relative;
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 20px 0;
+    cursor: pointer;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #1D59B4;
+}
+
+.container .contactInfo ul.info li{
+    background-color: #1D59B4;
+}
+
+.container .contactInfo ul.info li span:nth-child(1){
+    width: 30px;
+    min-width: 30px;
+    background-color: #1D59B4;
+    font-size: 25px;
+    padding-right: 30px;
+}
+
+
+.container .contactInfo ul.info li span i{
+    background-color: #1D59B4;
+    color: #FFFFFF;
+    font-weight: 100;
+}
+
+.container .contactInfo ul.info li span{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    background-color: #1D59B4;
+    color: #FFFFFF;
+}
+
+.txt h3{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    background-color: #1D59B4;
+    color: #FFFFFF;
+    padding-left: 62px;
+}
+
+.container .contactInfo ul.sci{
+    position: relative;
+    display: flex;  
+    background-color: #1D59B4;
+}
+
+.container .contactInfo ul.sci li{
+    list-style: none;
+    margin-right: 15px; 
+    background-color: #1D59B4;
+}
+
+.container .contactInfo ul.sci li a{
+    text-decoration: none;
+    background-color: #1D59B4;
+}
+
+.container .contactInfo ul.sci li a img{
+    width: 30px;
+    height: auto;
+    background-color: #1D59B4;
+}
+
+.container .contactForm{
+    position: absolute;
+    padding: 70px 50px;
+    padding-left: 250px;
+    margin-left: 150px;
+    width: calc(100% - 150px);
+    height: 100%;
+    background: #F1F5FF;
+    padding-left: 500px;
+}
+
+.container .contactForm h3{
+    color: #1D59B4;
+    font-size: 30px;
+    font-weight: 500;
+    background-color: #F1F5FF;
+}
+
+.container .contactForm .formBox{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 50px;
+    background-color: #F1F5FF;
+}
+
+.container .contactForm .formBox .inputBox{
+    position: relative;
+    margin-bottom: 35px;
+    background-color: #F1F5FF;
+   
+}
+
+.container .contactForm .formBox .inputBox.w50{
+    width: 47%;
+}
+
+.container .contactForm .formBox .inputBox.w100{
+    width: 90%;
+}
+
+.container .contactForm .formBox .inputBox input,
+.container .contactForm .formBox .inputBox textarea{
+    width: 100%;
+    resize: none;
+    padding: 5px 0;
+    font-size: 18px;
+    font-weight: 300;
+    color: #000000;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+    background-color: #F1F5FF;
+}
+
+.container .contactForm .formBox .inputBox textarea{
+    height: 120px;
+    background-color: #F1F5FF;
+}
+
+.container .contactForm .formBox .inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    pointer-events: none;
+    font-size: 18px;
+    font-weight: 300;
+    transition: 0.3s;
+    background-color: #F1F5FF;
+}
+
+.container .contactForm .formBox .inputBox input:focus ~ span,
+.container .contactForm .formBox .inputBox input :valid ~ span,
+.container .contactForm .formBox .inputBox textarea:focus ~ span,
+.container .contactForm .formBox .inputBox textarea :valid ~ span
+{
+    transform: translateY(-20px);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #003687;
+    background-color: #F1F5FF;
+}
+
+.container .contactForm .formBox .inputBox input[type="submit"]{
+    position: relative;
+    background-color: #1D59B4;
+    color: #ffffff;
+    padding: 8px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: poppins;
+    font-size: 20px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Add transition for a smooth effect */
+    max-width: 150px;
+}
+
+.container .contactForm .formBox .inputBox input[type="submit"]:hover{
+    background-color: #060912;
+    /* Change to the desired hover background color */
+    color: #ffffff;
+    /* Change to the desired hover text color */
+}
+
+.footer {
+    height: 5.4vh;
+    /* Adjust as needed */
+    background-color: #1D59B4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 100px;
+    /* Adjust padding as needed */
+    padding-right: 100px;
+  }
+  
+  .footer {
+    height: 5.4vh;
+    /* Adjust as needed */
+    background-color: #1D59B4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 100px;
+    /* Adjust padding as needed */
+    padding-right: 100px;
+    margin-top: -12px;
+} 
+
+.footer-left p{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #F1F5FF !important;
+    background-color: #1D59B4;
+}
+
+.footer-right {
+    display: flex;
+    gap: 5px;
+    /* Adjust the gap between social icons */
+    padding-bottom: 5px;
+    text-align: left;
+    color: #F1F5FF;
+    background-color: #1D59B4;
+}
+
+.social-icon {
+    width: 20px;
+    height: auto;
+    margin-right: 15px;
+    margin-top: 10px;
+    background-color: #1D59B4;
+    cursor: pointer;
+}
