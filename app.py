@@ -48,6 +48,10 @@ def homepage():
     # This is the new route for the homepage
     return render_template('home.html')
 
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
 # Define the /api route to handle POST requests
 @app.route("/api", methods=["POST"])
 def api():
