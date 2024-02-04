@@ -18,12 +18,14 @@
   <div class="hero">
     <nav>
       <div class="navbar-logo">
-        <img src="static/images/Alisa-Blue-Logo.png" alt="Your Logo">
+        <a href="home">
+          <img src="static/images/Alisa-Blue-Logo.png" alt="Your Logo">
+        </a>
       </div>
       <ul>
         <li><a href="home">Home</a></li>
         <li><a href="#">Generate Prompt</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="contact">Contact Us</a></li>
         <li><a href="login">Login</a></li>
       </ul>
     </nav>
@@ -94,54 +96,23 @@
     </div>
   </section>
 
-  <!-- <section class="steps">
-    <h3>4 steps with ALISA</h3>
-
-    <div class="process-wrapper">
-      <div id="progress-bar-container">
-        <ul>
-          <li class="step step01 active">
-            <div class="step-inner">Tell Us Your Desire</div>
-          </li>
-          <li class="step step02">
-            <div class="step-inner">Bring It to Life</div>
-          </li>
-          <li class="step step03">
-            <div class="step-inner">Discover Your Spark</div>
-          </li>
-          <li class="step step04">
-            <div class="step-inner">Seize Your Inspiration</div>
-          </li>
-        </ul>
-        <div id="line">
-          <div id="line-process"></div>
-        </div>
+  <section class="why-section">
+    <div class="why-content">
+      <div class="why-text">
+        <h3>Why choose Alisa?</h3>
+        <p>ALISA, which stands for "Adaptive Learning Interface for Senior Assistance,"<br>is not just another artificial intelligence. It's your digital companion, carefully<br>designed to understand the unique needs, challenges, and preferences of<br>the senior community. Our journey began with the vision of creating an AI<br>solution that could truly make a difference in the lives of seniors.</p>
       </div>
-      <div id="progress-content-section">
-        <div class="section-content discovery active">
-          <h5>Tell Us Your Desire</h5>
-          <p>Share your creative direction, and we'll tailor the prompt to your imagination.</p>
-        </div>
-        <div class="section-content strategy">
-          <h5>Bring It to Life</h5>
-          <p>With a single click, we'll turn your vision into a vivid prompt.</p>
-        </div>
-        <div class="section-content creative">
-          <h5>Discover Your Spark</h5>
-          <p>Your unique prompt is revealed, igniting your creative journey.</p>
-        </div>
-        <div class="section-content strategy">
-          <h5>Seize Your Inspiration</h5>
-          <p>Copy your newfound inspiration and unleash your creativity.</p>
-        </div>
+      <div class="why-image">
+        <img src="static/images/older.png" alt="Why Alisa Image">
       </div>
     </div>
-  </section> -->
+  </section>
+
 
 <section>
   <div class="footer">
     <div class="footer-left">
-      <p>Join ALISA Community</p>
+      <h6>Join ALISA Community</h6>
     </div>
     <div class="footer-right">
       <img src="static/images/facebook-icon.png" alt="social-icon" class="social-icon">
@@ -150,6 +121,7 @@
     </div>
   </div>
 </section>
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const steps = document.querySelectorAll("#progress-bar-container li");
@@ -169,7 +141,80 @@
     });
   </script>
   
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cards = document.querySelectorAll(".card");
+  
+      function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+  
+      function handleCardAnimation() {
+        cards.forEach((card, index) => {
+          if (isElementInViewport(card)) {
+            setTimeout(() => {
+              card.classList.add("visible");
+            }, index * 500); // Adjust the delay (200ms in this example) based on your preference
+          }
+        });
+      }
+  
+      // Attach the scroll event listener
+      window.addEventListener("scroll", handleCardAnimation);
+  
+      // Trigger the animation on page load
+      handleCardAnimation();
+    });
+  </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const whySection = document.querySelector(".why-section");
+    const whyText = document.querySelector(".why-text");
+    const whyImage = document.querySelector(".why-image");
+    let animationStarted = false;
+
+    function isElementFullyInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    function handleSlideAnimation() {
+      if (isElementFullyInViewport(whyText) && isElementFullyInViewport(whyImage) && !animationStarted) {
+        whyText.classList.add("slide-in-left");
+        whyImage.classList.add("slide-in-right");
+        animationStarted = true;
+      }
+    }
+
+    // Attach the scroll event listener
+    window.addEventListener("scroll", handleSlideAnimation);
+
+    // Trigger the animation on page load if already in view
+    handleSlideAnimation();
+  });
+</script>
+
+
+
+
+
+
+
+
+
+  
  
 
 
