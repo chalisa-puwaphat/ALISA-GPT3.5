@@ -23,19 +23,20 @@
 
 <body>
   <!------------------------------------------- Navigation Bar Part ------------------------------------------->
-  <nav class="navbar">
-    <div class="navbar-logo">
-      <img src="static/images/Alisa-Blue-Logo.png" alt="Your Logo">
-    </div>
-    <div class="navbar-links">
+  <div class="hero">
+    <nav>
+      <div class="navbar-logo">
+        <a href="home">
+          <img src="static/images/Alisa-Blue-Logo.png" alt="Your Logo">
+        </a>
+      </div>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Generate Prompt</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="home">Home</a></li>
+        <li><a href="generate">Generate Prompt</a></li>
+        <li><a href="contact">Contact Us</a></li>
+        <li><a href="login">Login</a></li>
       </ul>
-    </div>
-  </nav>
-
+    </nav>
 
   <div class="container mt-5">
     <h1 style="color:#060912">Simplify Prompts Effortlessly</h1>
@@ -84,37 +85,18 @@
   </div>
 
    <!--------------------------------------- Footer --------------------------------------->
-   <footer class="footer mt-5">
-
-    <div class="footer-left">
-      <img src="static/images/Alisa-White-Logo.png" alt="Your Logo" class="logo">
-      <p>Join our Community</p>
-
-      <div class="separator"></div>
-      
-      <div class="social-media">
+   <section>
+    <div class="footer">
+      <div class="footer-left">
+        <h6>Join ALISA Community</h6>
+      </div>
+      <div class="footer-right">
         <img src="static/images/facebook-icon.png" alt="social-icon" class="social-icon">
         <img src="static/images/youtube-icon.png" alt="social-icon" class="social-icon">
         <img src="static/images/linkedin-icon.png" alt="social-icon" class="social-icon">
       </div>
     </div>
-
-    <div class="footer-right">
-
-      <h3>Contact Us</h3>
-      <p>Prince of Songkla University International College, Hatyai Campus<br>12th Floor, Learning Resource Center 2
-        (LRC 2)<br>15 Kanjanavanich Road, Hat Yai, Songkhla, TH 90110</p>
-
-      <div class="contact-info">
-        <img src="static/images/call-icon.png" alt="call-icon" class="call-icon">
-        <h4 class="phone-number">+66 (0) 74282831</h4>
-        <img src="static/images/email-icon.png" alt="email-icon" class="email-icon">
-        <h4 class="email">alisa@gmail.com</h4>
-      </div>
-
-    </div>
-    </div>
-</footer>
+  </section>
 
   <script>
     // Function to highlight code using highlight.js library
