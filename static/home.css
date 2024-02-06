@@ -457,12 +457,24 @@ h4 {
     flex: 1;
     text-align: left;
     padding-right: 20px;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .why-image {
     flex: 1;
     margin-top: 20px;
     text-align: right;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.why-text.slide-in-left {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.why-image.slide-in-right {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .why-text h3 {
@@ -525,3 +537,4 @@ h4 {
     background-color: #1D59B4;
     cursor: pointer;
 }
+
