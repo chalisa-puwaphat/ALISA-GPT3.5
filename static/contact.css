@@ -192,6 +192,7 @@ section{
     height: 100%;
     background: #F1F5FF;
     padding-left: 500px;
+    margin-top: 3px;
 }
 
 .container .contactForm h3{
@@ -342,4 +343,115 @@ section{
     margin-top: 10px;
     background-color: #1D59B4;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .hero {
+        padding-bottom: 0;
+    }
+
+    nav ul li {
+        padding: 10px;
+        gap: 5px;
+        padding-bottom: 0;
+    }
+
+    .navbar-logo img {
+        width: 35px;
+        padding-bottom: 0;
+    }
+ 
+    .container .contactInfo{
+        top: -50px;
+        width: 1000px;
+        height: 300px;
+        padding: 40px;   
+        background-color: #1D59B4; 
+    }
+    
+    .container{
+       padding-top: 0;
+    }
+    .container .contactInfo h2{
+        padding-left: 420px;
+        background-color: #1D59B4;
+    }
+    
+    .container .contactInfo ul.info{
+        padding-left: 420px;
+        background-color: #1D59B4;
+    }
+    
+    .container .contactInfo ul.info li{
+        background-color: #1D59B4;
+    }
+    
+    .container .contactInfo ul.info li span:nth-child(1){
+        width: 30px;
+        min-width: 30px;
+        background-color: #1D59B4;
+        font-size: 25px;
+        padding-right: 30px;
+    }
+    
+    
+    .container .contactInfo ul.info li span i{
+        background-color: #1D59B4;
+        color: #FFFFFF;
+        font-weight: 100;
+    }
+    
+    .container .contactInfo ul.info li span{
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.5;
+        background-color: #1D59B4;
+        color: #FFFFFF;
+    }
+    
+    .txt h3{
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.5;
+        background-color: #1D59B4;
+        color: #FFFFFF;
+        padding-left: 62px;
+    }
+    
+    .container .contactInfo ul.sci{
+        padding-top: 50px;
+        padding-left: 420px;
+        padding-bottom: 50px;
+        right: 0;
+    }
+    
+    .container .contactInfo ul.sci li a img{
+        width: 25px;
+        height: auto;
+        background-color: #1D59B4;
+    }
+    
+    .container .contactForm{
+        top: 10;
+        width: 500
+    }
+    
+    .container .contactForm h3{
+        margin-top: 400px;
+    }
+    
+    .container .contactForm .formBox{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-top: 100px;
+        background-color: #F1F5FF;
+    }
+
+    .footer {
+        margin-top: 300px;
+      }
 }

@@ -30,7 +30,6 @@
       </ul>
     </nav>
 
-
     <section>
         <div class="container">
             <div class="contactInfo">
@@ -82,9 +81,11 @@
                         <textarea required></textarea>
                         <span>Write your message here...</span>
                     </div>
-                    <div class="inputBox w100">
+                    
+                    <div class="inputBox w100" id="sendButtonContainer">
                         <input type="submit" value="Send">
-                    </div>
+                      </div>
+                      </a>
                 </div>
             </div>
         </div>
@@ -101,3 +102,10 @@
             </div>
           </div>
 
+          <script>
+            document.getElementById('sendButtonContainer').addEventListener('click', function() {
+  window.location.href = 'home';
+});
+          </script>
+</body>
+</html>

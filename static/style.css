@@ -74,9 +74,9 @@ nav ul li a:hover:before {
 }
 
 h1 {
-  font-size:30px;
+  font-size:34px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: normal;
   text-align: center;
   margin-top: 0px;
@@ -86,19 +86,19 @@ h1 {
 .container{
   justify-content: center;
   align-items: center;
-  height: 80vh; /* Set the height to 100% of the viewport height */
+  height: 50vh; /* Set the height to 100% of the viewport height */
 }
 
 .nav-item {
-  padding-right: 10px;
+  padding-right: 0px;
   font-family: poppins;
   margin: 0;
 }
 
 .nav-link.active {
-  color: #F1F5FF;
-  background-color:#003687;; /* Add your preferred background color */
-  border-radius: 5px; 
+  color: #1D59B4;
+  background-color:#F1F5FF;; /* Add your preferred background color */
+  border-radius: 2px; 
   border-bottom: 0;/* Optional: Add border-radius for a rounded look */
 }
 
@@ -107,20 +107,21 @@ h1 {
 }
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-  color: #ffffff;
-  background-color: #1D59B4;
-  border-color: #1D59B4;
+  color: #1D59B4;
+  background-color: #F1F5FF;
+  border: none;
   border-bottom: transparent; /* Adjust the border color to blue */
   font-weight: 500;
 }
 
 .style-btn {
   transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  margin-top: -5px;
 }
 
 .style-btn:hover {
-  background-color: #003687; /* Change to the desired hover background color */
-  color: #ffffff; /* Change to the desired hover text color */
+  background-color: #1D59B4; /* Change to the desired hover background color */
+  color: #F1F5FF; /* Change to the desired hover text color */
 }
 
 .btn{
@@ -138,7 +139,7 @@ h1 {
 }
 
 .chat-box {
-  height: 350px;
+  height: 300px;
   overflow: auto;
   padding: 10px;
 }
@@ -160,16 +161,15 @@ h1 {
 }
 
 .user-message {
-  background-color:#1D59B4;
-  color: #fff;
-  font-size: 20px;
- 
+  background-color: #F1F5FF;
+  color: #000;
+  font-size: 18px;
 }
 
 .bot-message {
-  background-color: rgba(120, 164, 229, 0.98);
-  color: rgb(0, 0, 0);
-  font-size: 20px;
+  background-color:  #fff;
+  color: #003687;
+  font-size: 18px;
 }
 
 .message-text pre code {
@@ -181,61 +181,22 @@ h1 {
   font-size: 20px;
   margin-right: 20px;  
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 }
 
 .bot-icon {
-  font-size: 20px;
+  font-size: 30px;
   margin-right: 20px;  
   border-radius: 50%;
   width: 25px;
   height: 25px;
 }
 
-
-/* -------------------------------------Footer Part-------------------------------------  */
-
-.footer {
-  height: 5.4vh;
-  /* Adjust as needed */
-  background-color: #1D59B4;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 100px;
-  /* Adjust padding as needed */
-  padding-right: 100px;
-}
-
-.footer-left h6 {
+.mt-3.p3.rounded.bot-mess{
   margin: 0;
-  font-size: 16px;
-  font-weight: 500;
-  color: #F1F5FF !important;
-  background-color: #1D59B4;
 }
 
-.footer-right {
-  display: flex;
-  gap: 5px;
-  /* Adjust the gap between social icons */
-  padding-bottom: 5px;
-  text-align: left;
-  color: #F1F5FF;
-  background-color: #1D59B4;
-}
-
-.social-icon {
-  width: 20px;
-  height: auto;
-  margin-right: 15px;
-  margin-top: 10px;
-  background-color: #1D59B4;
-  cursor: pointer;
-}
-
-/* Add this at the end of your style.css file */
 .loading-overlay {
   display: none;
   position: fixed;
@@ -262,7 +223,7 @@ h1 {
   width: 3rem;
   height: 3rem;
   margin: 10px;
-}
+} */
 
 /* Add this to your existing style.css file */
 .copy-icon {
@@ -277,7 +238,7 @@ h1 {
 }
 
 .copy-icon:hover {
-  background-color: #003687;
+  background-color: #1D59B4;
 }
 
 /* Add this CSS to your existing style.css file */
@@ -290,8 +251,120 @@ h1 {
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.ghost-btn:hover {
-  color: #fff;
+.footer {
+  height: 5.4vh;
+  /* Adjust as needed */
   background-color: #1D59B4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 100px;
+  /* Adjust padding as needed */
+  padding-right: 100px;
+  margin-top: 53px;
 }
 
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #F1F5FF;
+}
+
+.footer-right {
+  display: flex;
+  gap: 5px;
+  /* Adjust the gap between social icons */
+  padding-bottom: 5px;
+  text-align: left;
+  color: #F1F5FF;
+}
+
+.social-icon {
+  width: 20px;
+  height: auto;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+
+#external-link {
+  display: block; /* Makes the entire link area clickable */
+  text-decoration: none; /* Removes default underline */
+  width: 50px; /* Adjust width as needed */
+  height: auto; /* Adjust height as needed */
+  padding-top: 165px;
+  margin-left: 1460px;
+  
+}
+
+#external-link img {
+  width: 100%; /* Ensures the image fills the link area */
+  height: auto; /* Maintains aspect ratio */
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-bottom: 0;
+}
+
+nav ul li {
+    padding: 10px;
+    gap: 5px;
+    padding-bottom: 0;
+}
+
+.navbar-logo img {
+    width: 35px;
+    padding-bottom: 0;
+}
+  
+  .container {
+    padding: 0 70px;
+    height: auto; /* Remove fixed height */
+    margin-top: 10px; /* Adjust margin as needed */
+    margin-bottom: 20px; /* Adjust margin as needed */
+  }
+
+  h1 {
+    font-size: 28px; /* Adjust font size as needed */
+  }
+  
+ 
+  .style-btn {
+    margin-top: 5px; /* Adjust margin as needed */
+    margin-right: 5px; /* Adjust margin as needed */
+    font-size: 12px; /* Adjust font size as needed */
+    padding: 5px 10px; /* Adjust padding as needed */
+  }
+
+  .chat-box {
+    height: 400px; /* Adjust height as needed */
+  }
+
+  .footer {
+    padding-left: 20px; /* Adjust padding as needed */
+    padding-right: 20px; /* Adjust padding as needed */
+    margin-top: 59px;
+  }
+
+  .footer p {
+    font-size: 12px; /* Adjust font size as needed */
+  }
+
+  .social-icon {
+    width: 15px; /* Adjust size as needed */
+    margin-right: 10px; /* Adjust margin as needed */
+  }
+
+  #external-link {
+    width: 40px; /* Adjust width as needed */
+    padding-top: 0px; /* Adjust padding as needed */
+    margin-left: 640px; /* Center the link */
+    margin-right: auto; /* Center the link */
+    margin-top: -51px;
+  }
+
+  #external-link img {
+    width: 100%; /* Ensure the image fills the link area */
+    height: auto; /* Maintain aspect ratio */
+  }
+}

@@ -8,7 +8,9 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <script src="https://unpkg.com/scrollreveal"></script>
 </head>
@@ -17,20 +19,20 @@
   <div class="hero">
     <nav class="navbar">
       <div class="navbar-logo">
-          <a href="home">
-              <img src="static/images/Alisa-Blue-Logo.png" alt="Your Logo">
-          </a>
+        <a href="home">
+          <img src="static/images/Alisa-Blue-Logo.png" alt="Your Logo">
+        </a>
       </div>
       <div class="menu-toggle">
-          <div class="hamburger"></div>
+        <div class="hamburger"></div>
       </div>
       <ul class="navbar-menu">
-          <li><a href="home">Home</a></li>
-          <li><a href="generate">Generate Prompt</a></li>
-          <li><a href="contact">Contact Us</a></li>
-          <li><a href="login">Login</a></li>
+        <li><a href="home">Home</a></li>
+        <li><a href="generate">Generate Prompt</a></li>
+        <li><a href="contact">Contact Us</a></li>
+        <li><a href="login">Login</a></li>
       </ul>
-  </nav>
+    </nav>
     <div class="content">
       <div class="textBox">
         <h1>SENIOR <span>UI</span> PROMPT</h1>
@@ -179,39 +181,39 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-    const whySection = document.querySelector('.why-section');
-    const whyText = document.querySelector('.why-text');
-    const whyImage = document.querySelector('.why-image');
+      const whySection = document.querySelector('.why-section');
+      const whyText = document.querySelector('.why-text');
+      const whyImage = document.querySelector('.why-image');
 
-    function handleIntersection(entries, observer) {
+      function handleIntersection(entries, observer) {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                console.log('why-section is in viewport');
-                whyText.classList.add('slide-in-left');
-                whyImage.classList.add('slide-in-right');
-                // Disconnect the observer once the animation is triggered
-                observer.disconnect();
-            }
+          if (entry.isIntersecting) {
+            console.log('why-section is in viewport');
+            whyText.classList.add('slide-in-left');
+            whyImage.classList.add('slide-in-right');
+            // Disconnect the observer once the animation is triggered
+            observer.disconnect();
+          }
         });
-    }
+      }
 
-    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
+      const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
 
-    // Start observing the why-section
-    observer.observe(whySection);
-});
+      // Start observing the why-section
+      observer.observe(whySection);
+    });
   </script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navbarMenu = document.querySelector(".navbar-menu");
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navbarMenu = document.querySelector(".navbar-menu");
 
-    menuToggle.addEventListener("click", function() {
-    console.log("Hamburger menu clicked!");
-    navbarMenu.classList.toggle("active");
-  });
-});
+      menuToggle.addEventListener("click", function () {
+        console.log("Hamburger menu clicked!");
+        navbarMenu.classList.toggle("active");
+      });
+    });
   </script>
 </body>
 
