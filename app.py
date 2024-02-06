@@ -271,14 +271,13 @@ def api():
 def signup():
     if request.method == "POST":
         name = request.form.get("name")
-        lastname = request.form.get("lastname")
         email = request.form.get("email")
         password = request.form.get("password")
 
         # Hash the password before storing it in the database
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
-        new_user = User(name=name, lastname=lastname, email=email, password=hashed_password)
+        new_user = User(name=name, email=email, password=hashed_password)
 
         db.session.add(new_user)
         db.session.commit()
